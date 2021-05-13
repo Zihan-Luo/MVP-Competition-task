@@ -1,0 +1,23 @@
+1. Clean raw data(Australia Dataset)
+2. Generate new database(AustraliaProperty) in SQL Server and import cleaned data by 'import flat file'
+3. Generate new data warehouse(AustraliaPropertyDW) and dimension tables by 'SQL Server import and export wizard'
+   SQL Query:
+   CREATE TABLE [dbo].[PropertyMedianValue] (
+          [MedianValueID] INT IDENTITY(1,1) PRIMARY KEY,
+          [PropertyMedianValue] float NOT NULL,
+          [Suburb] nvarchar(50) NOT NULL,
+          [Postcode] nvarchar(50) NOT NULL,
+          [City_Town] nvarchar(50) NOT NULL,
+          [State] nvarchar(50) NOT NULL,
+          [Updated_Year] int NOT NULL,
+          [Updated_Month] int NOT NULL
+   )
+4. Use Visual Studio to generate a SSIS Package
+OLE DB Destination editor- new table query:
+    CREATE TABLE [OLE DB Destination] (
+    [SuburbID] int,
+    [Suburb] nvarchar(50),
+    [MedianValueID] int,
+    [PropertyMedianValue] float,
+    [StationID] int
+)
