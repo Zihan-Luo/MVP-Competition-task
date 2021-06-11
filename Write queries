@@ -21,3 +21,4 @@ OLE DB Destination editor- new table query:
     [PropertyMedianValue] float,
     [StationID] int
 )
+5. Drop table if exists [dbo].[FactPropertyDetails]
